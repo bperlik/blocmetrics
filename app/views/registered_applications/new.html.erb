@@ -1,0 +1,28 @@
+ <h1>Register This Application</h1>
+
+ <div class="row">
+   <div class="col-md-4">
+     <p>Guidelines for Registering Applications</p>
+     <ul>
+       <li>You must be the owner or legal manager of this app.</li>
+       <li>Be very careful with your format for successful registration!</li>
+     </ul>
+   </div>
+
+   <div class="col-md-8">
+     <%= form_for @registered_application do |f| %>
+       <div class="form-group">
+         <%= f.label :name%>
+         <%= f.text_field :name, class: 'form-control' %>
+       </div>
+       <div class="form-group">
+         <%= f.label :url %>
+         <%= f.text_field :url, class: 'form-control', placeholder: "Enter Application URL" %>
+       </div>
+       <div class="form-group">
+         <%= f.submit "Save", class: 'btn btn-success' %>
+       </div>
+     <% end %>
+   </div>
+ </div>
+
