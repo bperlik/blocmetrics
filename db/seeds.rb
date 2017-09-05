@@ -1,5 +1,6 @@
-# Create Users
+require 'faker'
 
+# Create Users
 3.times do
   user = User.new(
     email: Faker::Internet.email,
@@ -23,7 +24,17 @@ end
 
 registered_applications = RegisteredApplication.all
 
+# Create Events
+50.times do
+  Event.create!(
+    registered_application: registered_applications.sample,
+    name: Faker::Lorem.word
+  )
+end
+
+events = Event.all
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{RegisteredApplication.count} registered applications created"
-
+puts "#{Event.count} events created"

@@ -25,7 +25,9 @@
     <% end %>
     </ul>
 
-    <p>Signed in as: <strong><%= current_user.email %></strong></p>
+    <% if user_signed_in? %>
+      <p>Signed in as: <strong><%= current_user.email %></strong></p>
+    <% end %>
 
     <% if flash[:notice] %>
           <div class="alert alert-success">
