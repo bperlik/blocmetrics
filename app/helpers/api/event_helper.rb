@@ -1,0 +1,2 @@
+module API::EventHelper
+end

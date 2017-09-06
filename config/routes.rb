@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'registered_applications/index'
-
-  get 'registered_applications/show'
-
-  get 'registered_applications/new'
+  namespace :api do
+  get 'event/create'
+  end
 
   devise_for :users
 
@@ -13,5 +11,11 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
 
   root 'welcome#index'
+
+  #namespace keeps the API separated from other app routes
+  namespace :api, defaults: { format: :json } do
+    #our API only needs to support one route to record new events
+    resources :events, only:[:create]
+  end
 
 end
