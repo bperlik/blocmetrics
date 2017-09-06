@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :api do
+  get 'events/create'
+  end
+
+  namespace :api do
   get 'event/create'
   end
 
