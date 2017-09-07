@@ -22,4 +22,9 @@ Rails.application.routes.draw do
     resources :events, only:[:create]
   end
 
+  # To implement CORS, use option request to check if route accepts a COR
+  # and then define preflight option to return a 200 in events controller
+  match '/events', to: 'events#preflight', via: [:options]
+  resources :events, only:[:create]
+
 end
