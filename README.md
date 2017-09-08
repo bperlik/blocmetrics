@@ -48,3 +48,16 @@ This app was created as part of the [Bloc](www.bloc.io) Full Stack Web Developme
 + Create and migrate the SQLite database with `rake db:create` and `rake db:migrate`
 + Start the server using `rails server`
 + Run the app on `localhost:3000`
+
+**JavaScript Snippet to track events
+* Call the function with the snippet
+ code blocmetrics.report()
+
+* The function
+ code blocmetrics.report = function(eventName) {
+    var event = {event: { name: eventName}};
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:300/api/events", true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify(event));
+  } 
